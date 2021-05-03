@@ -1,7 +1,10 @@
-package Liang.chpt28;
+/*
+Instructions:
+complete the methods depthFirstTraversal() and dfs()
+dfs described in book
+ */
 
-import java.util.Set;
-import java.util.LinkedHashSet;
+import java.util.*;
 
 public class Listing28_8 {
 
@@ -42,11 +45,22 @@ public class Listing28_8 {
     
 	// TODO fill in these methods
 	static Set<String> depthFirstTraversal(GraphHelper graph, String root) {
-        return null;
+
+		return dfs(graph, root, new LinkedHashSet<String>(), new HashSet<String>());
+
     }
     
-    static Set<String> dfs(GraphHelper graph, String root, LinkedHashSet<String> dftSet){
- 
+    static Set<String> dfs(GraphHelper graph, String root, LinkedHashSet<String> dftSet, HashSet<String> visited){
+
+		// Add root first
+		dftSet.add(root);
+		visited.add(root);
+
+		for (String vert : graph.getAdjVertices(root) ){
+			if (!visited.contains(vert)){
+				dfs(graph, vert, dftSet, visited);
+			}
+		}
 		return dftSet;
 	}
 }

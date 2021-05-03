@@ -1,5 +1,3 @@
-package Liang.chpt28;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,11 +8,14 @@ import java.util.Map;
 import java.util.Vector;
 import java.util.stream.Collectors;
 
+
+
 class GraphHelper {
 	private Map<Vertex, List<Vertex>> adjVertices;
 
 	public GraphHelper() {
 		adjVertices = new HashMap<>();
+
 	}
 
 	void addVertex(String label) {
@@ -49,8 +50,9 @@ class GraphHelper {
 	List<String> getAdjVertices(String label) {
         List<String> v = new LinkedList<String>();
         
-		for (Vertex e : adjVertices.get(new Vertex(label)))
-                v.add(e.label);
+		for (Vertex e : adjVertices.get(new Vertex(label))) {
+			v.add(e.label);
+		}
         
         return v;
 	}
